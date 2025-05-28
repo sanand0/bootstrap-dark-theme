@@ -1,0 +1,33 @@
+{
+  "name": "bootstrap-dark-theme",
+  "version": "1.0.0",
+  "description": "Bootstrap 5 dark theme toggle button",
+  "scripts": {
+    "build": "npx -y esbuild dark-theme.js --format=esm --bundle --minify --allow-overwrite --sourcemap --outfile=dist/dark-theme.js",
+    "prepublish": "npm run build"
+  },
+  "files": [
+    "README.md",
+    "dist/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sanand0/bootstrap-dark-theme"
+  },
+  "keywords": [
+    "bootstrap",
+    "dark-theme",
+    "ui"
+  ],
+  "author": "S Anand <root.node@gmail.com>",
+  "contributors": [],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sanand0/bootstrap-dark-theme/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "homepage": "https://sanand0.github.io/bootstrap-dark-theme/"
+}
