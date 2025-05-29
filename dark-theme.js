@@ -1,18 +1,19 @@
-const getStoredTheme = () => localStorage.getItem("theme");
+const validTheme = (theme) => (["light", "dark", "auto"].includes(theme) ? theme : "auto");
+const getStoredTheme = () => validTheme(localStorage.getItem("theme"));
 const setStoredTheme = (theme) => localStorage.setItem("theme", theme);
 const getPreferredTheme = () =>
   getStoredTheme() || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-const setTheme = (theme) =>
-  document.documentElement.setAttribute(
-    "data-bs-theme",
-    theme === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : theme,
-  );
+const setBootstrapTheme = (theme) => {
+  if (theme === "auto") theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  document.documentElement.setAttribute("data-bs-theme", theme);
+};
 
-setTheme(getPreferredTheme());
+setBootstrapTheme(getPreferredTheme());
 
-function showActiveTheme(theme, focus = false) {
+function updateButtons(theme, focus = false) {
   const themeSwitcher = document.querySelector(".dark-theme-toggle");
-  const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`);
+  // If the theme is invalid, show "auto" theme
+  const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"],[data-bs-theme-value="auto"]`);
   document.querySelectorAll("[data-bs-theme-value]").forEach((element) => {
     element.classList.remove("active");
     element.setAttribute("aria-pressed", "false");
@@ -27,14 +28,15 @@ function showActiveTheme(theme, focus = false) {
 document.addEventListener(
   "DOMContentLoaded",
   function () {
-    showActiveTheme(getPreferredTheme());
+    updateButtons(getPreferredTheme());
     document.querySelectorAll("[data-bs-theme-value]").forEach((toggle) => {
       toggle.addEventListener("click", () => {
-        const theme = toggle.getAttribute("data-bs-theme-value");
-        if (theme) {
+        const themeValue = toggle.getAttribute("data-bs-theme-value");
+        if (themeValue) {
+          const theme = validTheme(themeValue);
           setStoredTheme(theme);
-          setTheme(theme);
-          showActiveTheme(theme, true);
+          setBootstrapTheme(theme);
+          updateButtons(theme, true);
         }
       });
     });
