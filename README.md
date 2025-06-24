@@ -19,7 +19,7 @@ Use locally:
 Use via CDN:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-dark-theme@1/dist/dark-theme.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-dark-theme@1"></script>
 ```
 
 ## Usage
@@ -80,6 +80,7 @@ How it works:
 
 # Release notes
 
+- [1.2.1](https://www.npmjs.com/package/bootstrap-dark-theme/v/1.2.1): 24 Jun 2025. Enable default file: `https://cdn.jsdelivr.net/npm/bootstrap-dark-theme@1`
 - [1.2.0](https://www.npmjs.com/package/bootstrap-dark-theme/v/1.2.0): 24 Jun 2025. Embed HTML via `<div class="bootstrap-theme"></div>`
 - [1.1.0](https://www.npmjs.com/package/bootstrap-dark-theme/v/1.1.0): 29 May 2025. Treat unknown themes as 'auto'. Add tests
 - [1.0.0](https://www.npmjs.com/package/bootstrap-dark-theme/v/1.0.0): 28 May 2025. Initial release

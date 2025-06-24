@@ -1,11 +1,12 @@
 {
   "name": "bootstrap-dark-theme",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Bootstrap 5 dark theme toggle button",
+  "main": "dist/dark-theme.js",
   "scripts": {
     "build": "npx -y esbuild dark-theme.js --format=esm --bundle --minify --allow-overwrite --sourcemap --outfile=dist/dark-theme.js",
     "lint": "npx -y prettier@3.5 --print-width 120 --write '**/*.js' '**/*.md'",
-    "test": "npx -y vitest@3.1 run --globals",
+    "test": "npx -y vitest@3.1 run",
     "prepublishOnly": "npm run build && npm test"
   },
   "files": [
