@@ -24,29 +24,51 @@ Use via CDN:
 
 ## Usage
 
-Add [this HTML navbar](dark-theme.html) to your page, modified as required,
-for a navbar with a dark theme dropdown toggle like this:
+Add a `<div class="bootstrap-dark-theme"></div>` inside your navbar. The dark theme toggle _replaces_ it.
+
+```html
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <div class="bootstrap-dark-theme"></div>
+  </div>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-dark-theme@1/dist/dark-theme.js" type="module"></script>
+```
 
 [![Dark theme example](dark-theme.png)](dark-theme.html ":include height=160px")
 
-## Required Elements and Attributes
+## Custom Styling
 
-To implement the dark theme toggle, you need to include the following elements with specific attributes:
+You can replace `<div class="bootstrap-theme"></div>` with your toggle. For example:
+
+```html
+<div class="position-relative" role="group" aria-label="Toggle dark mode" title="Toggle Dark Mode">
+  <button class="dark-theme-toggle btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Open navigation menu">
+    <i class="bi bi-circle-half"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item" data-bs-theme-value="light"><i class="me-2 bi sun-fill"></i> Light</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="dark"><i class="me-2 bi bi-moon-stars-fill"> Dark</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="auto"><i class="me-2 bi bi-circle-half"> Auto</button></li>
+  </ul>
+</div>
+```
+
+Make sure you have:
 
 1. A button with the class `dark-theme-toggle` that serves as the main toggle button
-2. Buttons with the attribute `data-bs-theme-value` set to one of the valid themes
+2. Buttons with the attribute `data-bs-theme-value` with values:
+   - `light`: Forces the light theme regardless of system preference
+   - `dark`: Forces the dark theme regardless of system preference
+   - `auto`: Uses the system preference (light or dark) based on the user's OS settings
+   - Any invalid theme value will default to the same behavior as `auto`.
 
-### Valid Theme Values
-
-Only the following theme values are valid for the `data-bs-theme-value` attribute:
-
-- `light`: Forces the light theme regardless of system preference
-- `dark`: Forces the dark theme regardless of system preference
-- `auto`: Uses the system preference (light or dark) based on the user's OS settings
-
-Any invalid theme value will default to the same behavior as `auto`.
-
-### How It Works
+How it works:
 
 1. The script looks for elements with the `data-bs-theme-value` attribute
 2. When a user clicks on one of these elements, the script:
@@ -58,6 +80,7 @@ Any invalid theme value will default to the same behavior as `auto`.
 
 # Release notes
 
+- [1.2.0](https://www.npmjs.com/package/bootstrap-dark-theme/v/1.2.0): 24 Jun 2025. Embed HTML via `<div class="bootstrap-theme"></div>`
 - [1.1.0](https://www.npmjs.com/package/bootstrap-dark-theme/v/1.1.0): 29 May 2025. Treat unknown themes as 'auto'. Add tests
 - [1.0.0](https://www.npmjs.com/package/bootstrap-dark-theme/v/1.0.0): 28 May 2025. Initial release
 
