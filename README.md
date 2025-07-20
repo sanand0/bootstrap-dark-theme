@@ -1,5 +1,10 @@
 # bootstrap-dark-theme
 
+[![npm version](https://img.shields.io/npm/v/bootstrap-dark-theme.svg)](https://www.npmjs.com/package/bootstrap-dark-theme)
+[![Bootstrap](https://img.shields.io/badge/Framework-Bootstrap%205-7952b3)](https://getbootstrap.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/bootstrap-dark-theme)](https://bundlephobia.com/package/bootstrap-dark-theme)
+
 Adds a [Bootstrap 5](https://getbootstrap.com/docs/5.3/) light/dark theme toggle button in the navbar using [Bootstrap color mode](https://getbootstrap.com/docs/5.3/customize/color-modes/)
 
 ## Installation
