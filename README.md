@@ -98,7 +98,7 @@ git commit . -m"$COMMIT_MSG"; git tag $VERSION; git push --follow-tags
 
 ## Release notes
 
-- [1.3.0](https://www.npmjs.com/package/bootstrap-dark-theme/v/1.3.0): 30 Jul 2025. Standardized package.json & README.md
+- [1.3.1](https://www.npmjs.com/package/bootstrap-dark-theme/v/1.3.1): 31 Jul 2025. Standardized package.json & README.md
 - [1.2.1](https://www.npmjs.com/package/bootstrap-dark-theme/v/1.2.1): 24 Jun 2025. Enable default file: `https://cdn.jsdelivr.net/npm/bootstrap-dark-theme@1`
 - [1.2.0](https://www.npmjs.com/package/bootstrap-dark-theme/v/1.2.0): 24 Jun 2025. Embed HTML via `<div class="bootstrap-theme"></div>`
 - [1.1.0](https://www.npmjs.com/package/bootstrap-dark-theme/v/1.1.0): 29 May 2025. Treat unknown themes as 'auto'. Add tests
